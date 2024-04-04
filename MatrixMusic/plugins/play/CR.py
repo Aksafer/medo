@@ -19,7 +19,7 @@ from random import  choice, randint
     
 )
 async def huhh(client: Client, message: Message):
-    await message.reply_photo(
+    await message.reply_video(
         video=f"https://telegra.ph/file/e6f815307a347ec6e17d5.mp4",
         caption=f"""\nمرحبا بك عزيزي {message.from_user.mention} ᭙ᥱᥣ᥆ꪔᥱ ƚ᥆ ᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ ꪔᥙ᥉Ꭵᥴ""",
         reply_markup=InlineKeyboardMarkup(
@@ -50,7 +50,7 @@ async def huhh(client: Client, message: Message):
 
 
 @app.on_message(
-    command(["مطور السورس","المبرمج","مبرمج"])
+    command(["مطور السورس","المبرمج","كريزي"])
     
     
 )
@@ -58,7 +58,7 @@ async def yas(client, message):
     usr = await client.get_chat("Y_D_ll")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"𓏺 َِՏΌႮᎡᏟᎬ ᎡᎥΝΌ \n\n‍ ¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\nՏΌႮᎡᏟᎬ ᎡᎥΝΌ", 
+    await message.reply_photo(photo,       caption=f"𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 \n\n‍ ¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮", 
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -79,7 +79,7 @@ async def yas(client, message):
     usr = await client.get_chat("Y_D_ll")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 .\n\n¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\nՏΌႮᎡᏟᎬ ᎡᎥΝΌ", 
+    await message.reply_photo(photo,       caption=f"𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 .\n\n¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\n𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮", 
     reply_markup=InlineKeyboardMarkup(
             [
                 [
