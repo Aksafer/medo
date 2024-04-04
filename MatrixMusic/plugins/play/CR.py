@@ -15,7 +15,7 @@ from random import  choice, randint
 
                 
 @app.on_message(
-    command(["سورس"])
+    command(["سورس","السورس"])
     
 )
 async def huhh(client: Client, message: Message):
@@ -26,9 +26,9 @@ async def huhh(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "𝙶𝚁𝙾̀𝚄𝙿", url=f"https://t.me/YR_HC"), 
+                        "ᘜᖇ᥆ᥙρ", url=f"https://t.me/YR_HC"), 
                  InlineKeyboardButton(
-                   " 𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮",       url=f"https://t.me/SOURCE_SOM3A"), 
+                   "᥉᥆ᥙᖇᥴᥱ",       url=f"https://t.me/SOURCE_SOM3A"), 
                  
              ],[ 
             InlineKeyboardButton(
