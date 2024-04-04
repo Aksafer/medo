@@ -66,8 +66,8 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="𝐏𝐀𝐔𝐒𝐄", callback_data=f"ADMIN Pause|{chat_id}"),
             
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ", url=f"https://t.me/SOURCE_SOM3A"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/Q1_QU"),
+            InlineKeyboardButton(text="᥉᥆ᥙᖇᥴᥱ ", url=f"https://t.me/SOURCE_SOM3A"),
+            InlineKeyboardButton(text="ᘜᖇ᥆ᥙρ", url=f"https://t.me/Q1_QU"),
         ],[
             InlineKeyboardButton(text="Ꭵ᥉ ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
         ],[
@@ -84,8 +84,8 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="𝐏𝐀𝐔𝐒𝐄", callback_data=f"ADMIN Pause|{chat_id}"),
             
         ],[
-            InlineKeyboardButton(text="𝐂𝐇𝐀𝐍𝐍𝐄𝐋", url=f"https://t.me/SOURCE_SOM3A"),
-            InlineKeyboardButton(text="𝐆𝐑𝐎𝐔𝐏", url=f"https://t.me/Q1_QU"),
+            InlineKeyboardButton(text="᥉᥆ᥙᖇᥴᥱ", url=f"https://t.me/SOURCE_SOM3A"),
+            InlineKeyboardButton(text="ᘜᖇ᥆ᥙρ", url=f"https://t.me/Q1_QU"),
         ],[
             InlineKeyboardButton(text="Ꭵ᥉ ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
         ],[
