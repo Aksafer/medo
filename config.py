@@ -11,7 +11,7 @@ super_sudoers = [6456857472]
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID", 17154185))
+API_ID = int(getenv("API_ID", 6092147148))
 API_HASH = getenv("API_HASH", "7d24797dd1d72adbe8ee2596be2904d0")
 
 # Get your token from @BotFather on Telegram.
@@ -36,7 +36,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/me2wdo/medo.git",
+    "https://github.com:Tm-Lotus/medo.git",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -94,21 +94,21 @@ command = ["/"]
 
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
+    "START_IMG_URL", "https://graph.org/file/f88073bf478ad029a7e61.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
+    "PING_IMG_URL", "https://graph.org/file/f88073bf478ad029a7e61.jpg"
 )
-PLAYLIST_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-TELEGRAM_AUDIO_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-TELEGRAM_VIDEO_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-STREAM_IMG_URL ="https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-SOUNCLOUD_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-YOUTUBE_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph/file/e4a34cbe57d14da30235b.jpg"
+PLAYLIST_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+STATS_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+TELEGRAM_AUDIO_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+TELEGRAM_VIDEO_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+STREAM_IMG_URL ="https://graph.org/file/f88073bf478ad029a7e61.jpg"
+SOUNCLOUD_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+YOUTUBE_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/f88073bf478ad029a7e61.jpg"
 
 
 def time_to_seconds(time):
