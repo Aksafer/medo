@@ -35,7 +35,7 @@ async def zdatsr(client: Client, message: Message):
                     InlineKeyboardButton(name, url=f"https://t.me/{usrnam}"),
                 ],[
                     InlineKeyboardButton(
-                        "‹ ՏΌႮᎡᏟᎬ ᎡᎥΝΌ ›", url="https://t.me/I1_35"),
+                        "‹ 𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 ›", url="https://t.me/SOURCE_SOM3A"),
                 ],
             ]
         ),

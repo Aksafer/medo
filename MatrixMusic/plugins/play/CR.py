@@ -20,19 +20,19 @@ from random import  choice, randint
 )
 async def huhh(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/0395107f7b3d1e6ddda9f.jpg",
-        caption=f"""\nمرحبا بك عزيزي {message.from_user.mention} في قسم سورس ميوزك\nللتحدث مع مطور السورس اضغط علي الازرار بالاسفل👇""",
+        video=f"https://telegra.ph/file/e6f815307a347ec6e17d5.mp4",
+        caption=f"""\nمرحبا بك عزيزي {message.from_user.mention} ᭙ᥱᥣ᥆ꪔᥱ ƚ᥆ ᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ ꪔᥙ᥉Ꭵᥴ""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "𝙶𝚁𝙾̀𝚄𝙿", url=f"https://t.me/Q1_QU"), 
+                        "𝙶𝚁𝙾̀𝚄𝙿", url=f"https://t.me/YR_HC"), 
                  InlineKeyboardButton(
-                   " ՏΌႮᎡᏟᎬ ᎡᎥΝΌ",       url=f"https://t.me/I1_35"), 
+                   " 𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮",       url=f"https://t.me/SOURCE_SOM3A"), 
                  
              ],[ 
             InlineKeyboardButton(
-                        "ألموع ـلم مـ ــيــ ــدؤ ســ ـــنــ ــدأل >3`", url=f"https://t.me/EU_ET"), 
+                        "Ꭵ᥉ ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"), 
                  
                 ],
 
@@ -55,7 +55,7 @@ async def huhh(client: Client, message: Message):
     
 )
 async def yas(client, message):
-    usr = await client.get_chat("EU_ET")
+    usr = await client.get_chat("Y_D_ll")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
     await message.reply_photo(photo,       caption=f"𓏺 َِՏΌႮᎡᏟᎬ ᎡᎥΝΌ \n\n‍ ¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\nՏΌႮᎡᏟᎬ ᎡᎥΝΌ", 
@@ -71,15 +71,15 @@ async def yas(client, message):
 
 
 @app.on_message(
-    command(["ميدو"])
+    command(["اسبايدر"])
     
     
 )
 async def yas(client, message):
-    usr = await client.get_chat("EU_ET")
+    usr = await client.get_chat("Y_D_ll")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"𓏺 َِՏΌႮᎡᏟᎬ ᎡᎥΝΌ .\n\n¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\nՏΌႮᎡᏟᎬ ᎡᎥΝΌ", 
+    await message.reply_photo(photo,       caption=f"𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 .\n\n¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\nՏΌႮᎡᏟᎬ ᎡᎥΝΌ", 
     reply_markup=InlineKeyboardMarkup(
             [
                 [

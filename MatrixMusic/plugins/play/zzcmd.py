@@ -28,7 +28,7 @@ async def zzzback(_, query: CallbackQuery):
                         "‹ اوامر المطور ›", callback_data="zzzdv"),
                 ],[
                     InlineKeyboardButton(
-                        "‹ ՏΌႮᎡᏟᎬ ᎡᎥΝΌ ›", url="https://t.me/I1_35"),
+                        "‹ 𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 ›", url="https://t.me/SOURCE_SOM3A"),
                 ],
             ]
         ),
