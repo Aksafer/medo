@@ -17,7 +17,7 @@ async def Italymusic(client: Client, message: Message):
     chat_id = message.chat.id
     try:
         member = await client.get_chat_member(chat_id, user_id)
-        if user_id == 6130127477:
+        if user_id == 6905129434:
              rank = "مبرمج السورس🥹❤️"
         elif user_id == OWNER_ID:
              rank = "صاحب البوت يمعلم ⇇ اهلا مطوري الغالي كلو تحت السيطره يمعلم🦋🥹"
@@ -31,6 +31,6 @@ async def Italymusic(client: Client, message: Message):
         print(e)
         rank = "مش عرفنلو مله ده😒"
     async for photo in client.get_chat_photos("me", limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""**ـــــــ⌘ نعم يمعلم انا بتاع الدي جي ⌘ـــــ اتفضل ياا ⇇: {italy} عوز اي🤍🦋\nوانا بوت يمعلم واسمي ⇇ : {bot_name} 🥺🍓\nرتبتك يمعلم ⇇ :{rank}""", reply_markup=keyboard)
+                    await message.reply_photo(photo.file_id,       caption=f"""نعم يقلبي: {italy} عوز اي\nاسمي : {bot_name} \nرتبتك هيا ⇇ :{rank}""", reply_markup=keyboard)
 
 
