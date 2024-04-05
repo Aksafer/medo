@@ -110,7 +110,7 @@ async def upbkgt(client: Client, message: Message):
 @app.on_message(filters.regex("يـوتيوب"))
 def reply_to_HEY(Client, message):
     message.reply_photo(
-        photo=f"https://telegra.ph/file/fd99bed3b55e65ccb45ed.jpg",
+        photo=f"https://graph.org/file/3f428a46f14944f328804.jpg",
         caption=f"""يتم استخدام هذا الامر لعرض تحميل من اليوتيوب\nاستخدم الامر بهذا الشكل `تنزيل`  او  `يوتيوب`  كمثل تنزيل سوره الرحمن اضغط علي الامر لنسخ والاستخدا """,
         reply_markup=InlineKeyboardMarkup(
             [
