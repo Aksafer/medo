@@ -122,8 +122,8 @@ async def get_thumb(videoid):
             font4 = ImageFont.truetype('MatrixMusic/assets/font2.ttf', 35)
 
             image4 = ImageDraw.Draw(image2)
-            image4.text((10, 10), "𝙎𝙤𝙈𝟯𝙖 𝙈𝙪𝙎𝙞𝙘", fill="white", font = font1, align ="left") 
-            image4.text((670, 150), "𝙎𝙤𝙈𝟯𝙖 𝙋𝙡𝙖𝙔𝙞𝙉𝙜", fill="white", font = font2, stroke_width=2, stroke_fill="white", align ="left") 
+            image4.text((10, 10), "SOM3A MUSIC", fill="white", font = font1, align ="left") 
+            image4.text((670, 150), "SOM3A PLAYING", fill="white", font = font2, stroke_width=2, stroke_fill="white", align ="left") 
 
             # title
             title1 = truncate(title)
