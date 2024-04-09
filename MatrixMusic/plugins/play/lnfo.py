@@ -75,8 +75,8 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "AarohiX/assets/userdil.png"
-font_path = "AarohiX/assets/userdil.ttf"
+bg_path = "MatrixMusic/assets/userdil.png"
+font_path = "MatrixMusic/assets/userdil.ttf"
 
 # --------------------------------------------------------------------------------- #
 
@@ -121,7 +121,7 @@ async def userstatus(user_id):
 
 
 
-@app.on_message(filters.command(["كشف", "ايدي"], prefixes=["ايدي", "ا", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["ايديك", "ايدي"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def userinfo(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
