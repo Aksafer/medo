@@ -3,14 +3,18 @@ import os
 import time
 import requests
 import aiohttp
-from strings.filters import command
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
 from MatrixMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from MatrixMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
+
+
+
+
 
 @app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
 async def gak_owne(client: Client, message: Message):
@@ -26,7 +30,7 @@ async def gak_owne(client: Client, message: Message):
                  m = await client.get_chat(id)
                  if m.photo:
                        photo = await app.download_media(m.photo.big_file_id)
-                       return await message.reply_photo(photo, caption=f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 :{m.first_name}\n🎯 ¦𝚄𝚂𝙴𝚁 :@{m.username}\n🎃 ¦𝙸𝙳 :`{m.id}`\n💌 ¦𝙱𝙸𝙾 :{m.bio}\n✨ ¦𝙲𝙷𝙰𝚃: {message.chat.title}\n♻️ ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :`{message.chat.id}`",reply_markup=key)
+                       return await message.reply_photo(photo, caption=f"🕷 ¦𝙽𝙰𝙼𝙴 :{m.first_name}\n🐉 ¦𝚄𝚂𝙴𝚁 :@{m.username}\n🐰 ¦𝙸𝙳 :`{m.id}`\n🎬 ¦𝙱𝙸𝙾 :{m.bio}\n💎 ¦𝙲𝙷𝙰𝚃: {message.chat.title}\n🗿 ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :`{message.chat.id}`",reply_markup=key)
                  else:
                     return await message.reply("• " + member.user.mention)
                     
@@ -45,12 +49,12 @@ array = []
 @app.on_message(command(["@all", "تاك","تاك للكل"]) & ~filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
-     return await message.reply_text("التاك قيد التشغيل حالياً ،")
+     return await message.reply_text("**التاك قيد التشغيل حالياً ،**")
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("يجب انت تكون مشرف لاستخدام الامر 🖱️")
+    await message.reply("**يجب انت تكون مشرف لاستخدام الامر 🐉**")
     return
-  await message.reply_text("جاري بدأ المنشن ، لايقاف الامر اضغط \n /cancel او اكتب بس منشن")
+  await message.reply_text("**لايقاف الامر اضغط **\n /cancel او اكتب ايقاف")
   i = 0
   txt = ""
   zz = message.text
@@ -88,30 +92,20 @@ async def nummmm(client: app, message):
   array.remove(message.chat.id)
 
 
-@app.on_message(command(["بس المنشن", "/cancel","بس منشن"]))
+@app.on_message(command(["ايقاف", "/cancel","بس منشن"]))
 async def stop(client, message):
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("يجب انت تكون مشرف لاستخدام الامر 🖱️")
+    await message.reply("**يجب انت تكون مشرف لاستخدام الامر 🐉")
     return
   if message.chat.id not in array:
-     await message.reply("المنشن متوقف بالفعل")
+     await message.reply("**المنشن متوقف بالفعل**")
      return 
   if message.chat.id in array:
     array.remove(message.chat.id)
-    await message.reply("تم ايقاف المنشن بنجاح✅")
+    await message.reply("**تم ايقاف المنشن بنجاح*\n√*")
     return
 
-
-@app.on_message(filters.new_chat_members)
-async def wel__come(client: Client, message: Message):
- chatid= message.chat.id
- await client.send_message(text=f"- نورت ياا فرتكهه😘🤝️ {message.from_user.mention}\n│ \n└ʙʏ في {message.chat.title}",chat_id=chatid)
- 
-@app.on_message(filters.left_chat_member)
-async def good_bye(client: Client, message: Message):
- chatid= message.chat.id
- await client.send_message(text=f"- مشيت ليه يوحش يلا بسلامات🥲👋\n│ \n└ʙʏ  {message.from_user.mention} ",chat_id=chatid)
 
 
 
