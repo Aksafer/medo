@@ -15,7 +15,6 @@ from pyrogram.errors import FloodWait
 ahmed = {}
 tom_max = 3
 
-
 @app.on_message(filters.command("انذار", ""))
 async def tom(client, message):
     me = message.from_user.id
@@ -30,12 +29,11 @@ async def tom(client, message):
     await message.reply_text(f"{ahmed[chat_id][user_id]}")
     if ahmed[chat_id][user_id] >= tom_max:
         try:
-         del ahmed[chat_id][user_id]
-         await client.ban_chat_member(chat_id, user_id)
-         await message.reply("تم طرد العضو")    
+        	del ahmed[chat_id][user_id]
+        	await client.ban_chat_member(chat_id, user_id)
+        	await message.reply("تم طرد العضو بنجاح بعد لتعديها ادبسزز")   	
         except:
-         await message.reply("مش عارف اطردو")
+        	await message.reply("لا يمكن طرد المشرف ياغبي")
         
         
 
-app.run()
