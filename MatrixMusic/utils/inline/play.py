@@ -69,7 +69,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="᥉᥆ᥙᖇᥴᥱ ", url=f"https://t.me/SOURCE_SOM3A"),
             InlineKeyboardButton(text="ᘜᖇ᥆ᥙρ", url=f"https://t.me/YR_HC"),
         ],[
-            InlineKeyboardButton(text="Ꭵ᥉ ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
+            InlineKeyboardButton(text="᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
         ],[
             InlineKeyboardButton(text="اضف البوت الي مجموعتك او قناتك⚡", url=f"https://t.me/{app.username}?startgroup=true")],
     ]
