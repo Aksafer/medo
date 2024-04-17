@@ -12,7 +12,7 @@ GAME_BUTTONS = [
         InlineKeyboardButton ('★¦العاب 3D', callback_data= 'GAME1'),
         InlineKeyboardButton ('᥉᥆ꪔ3ᥲ', callback_data= 'GAME2'),
         ],[
-        InlineKeyboardButton ('⌞ѕᴏụʀᴄᴇ ᴀʟᴍᴏʀᴛᴀɢᴇʟ⌝⚡️', url =f"https://t.me/SOURCE_SOM3A")               
+        InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝️', url =f"https://t.me/SOURCE_SOM3A")               
                  ],[
                 InlineKeyboardButton(
                         "◁", callback_data="close"),
@@ -301,7 +301,7 @@ async def kaompj(client, message):
   
 
 @app.on_message(
-    filters.command(["الاعاب"], "")
+    filters.command(["العاب"], "الالعاب")
     & filters.group
 )
 async def zohary(client: Client, message: Message):
@@ -365,7 +365,7 @@ async def callback_query(client, CallbackQuery):
                       InlineKeyboardButton ('★¦العاب 3D', callback_data= 'GAME1'),
                       InlineKeyboardButton ('★¦العاب المرتجل', callback_data= 'GAME2')
                       ],[
-        InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝⚡️', url =f"https://t.me/SOURCE_SOM3A")              
+        InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝️', url =f"https://t.me/SOURCE_SOM3A")              
                  ],[
                 InlineKeyboardButton(
                         "◁", callback_data="close"),
@@ -382,7 +382,7 @@ async def callback_query(client, CallbackQuery):
 
                SORGAM_BUTTON = [
                     [ 
-                      InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝⚡️', url =f"https://t.me/SOURCE_SOM3A")
+                      InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝️', url =f"https://t.me/SOURCE_SOM3A")
                       ],[
                          InlineKeyboardButton ('◁', callback_data= 'GAME')
                     ]
