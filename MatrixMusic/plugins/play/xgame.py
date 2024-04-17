@@ -301,7 +301,7 @@ async def kaompj(client, message):
   
 
 @app.on_message(
-    filters.command(["العاب"], "الالعاب")
+    filters.command(["العاب"], "")
     & filters.group
 )
 async def zohary(client: Client, message: Message):
