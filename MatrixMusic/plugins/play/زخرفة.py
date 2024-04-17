@@ -1,7 +1,4 @@
-import telebot, requests, random
-from telebot import types 
-token = "Token"  
-bot = telebot.TeleBot(token)
+
 @bot.message_handler(commands=["start"])
 def start(message):
     bot.send_photo(message.chat.id,"https://t.me/ifuwufuj/29",caption="""
