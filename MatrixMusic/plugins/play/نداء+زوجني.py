@@ -6,7 +6,7 @@ from pyrogram import filters, Client
 
 app = Client(
     "botyy",
-    api_id=your_api_id_here,
+    api_id="your_api_id_here",
     api_hash="your_api_hash_here",
     bot_token="your_bot_token_here"
 )
