@@ -31,4 +31,3 @@ async def tom(client, message):
         
         
 
-app.run()
