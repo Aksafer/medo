@@ -110,6 +110,3 @@ async def stop(client, message):
     await asyncio.sleep(e.value)
 
 print("[✓]  Your client has been started ")  
-app.run()
- 
-
