@@ -301,7 +301,7 @@ async def kaompj(client, message):
   
 
 @app.on_message(
-    filters.command(["العاب"], "")
+    filters.command(["العاب"], "الالعاب")
     & filters.group
 )
 async def zohary(client: Client, message: Message):
@@ -314,7 +314,7 @@ async def zohary(client: Client, message: Message):
 async def callback_query(client, CallbackQuery):
           if CallbackQuery.data == "GAME1":
             
-             GAME1_MESSAGE = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\nمرحبا بك في قسم العاب المرتجل 3D\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺"
+             GAME1_MESSAGE = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\nمرحبا بك في قسم العاب سمعه 3D\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺"
 
              GAME1_BUTTONS = [
                  [
@@ -358,12 +358,12 @@ async def callback_query(client, CallbackQuery):
               )
           elif CallbackQuery.data == "GAME":
                
-               RETURN_GAME = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\n★¦مرحبا بك في قسم العاب المرتجل\n★¦اختار ما تشاء من الالعاب مسليه وستمتع بها\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺" 
+               RETURN_GAME = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\n★¦مرحبا بك في قسم العاب سمعه\n★¦اختار ما تشاء من الالعاب مسليه وستمتع بها\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺" 
 
                RETURN_BUTTON = [
                     [ 
                       InlineKeyboardButton ('★¦العاب 3D', callback_data= 'GAME1'),
-                      InlineKeyboardButton ('★¦العاب المرتجل', callback_data= 'GAME2')
+                      InlineKeyboardButton ('★¦العاب سمعه', callback_data= 'GAME2')
                       ],[
         InlineKeyboardButton ('⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝️', url =f"https://t.me/SOURCE_SOM3A")              
                  ],[
@@ -378,7 +378,7 @@ async def callback_query(client, CallbackQuery):
                     )
           elif CallbackQuery.data == "GAME2":
                
-               SOURCE_GAME = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\n★¦العاب المرتجل\n★¦كت\n★¦تويت\n★¦اسال\n★¦اصراحه\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺." 
+               SOURCE_GAME = "⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺\n\n★¦العاب سمعه\n★¦كت\n★¦تويت\n★¦اسال\n★¦اصراحه\n\n⩹━★⊷━⌞᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ⌝━⊶★━⩺." 
 
                SORGAM_BUTTON = [
                     [ 
