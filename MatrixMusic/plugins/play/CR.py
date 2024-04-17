@@ -32,7 +32,7 @@ async def huhh(client: Client, message: Message):
                  
              ],[ 
             InlineKeyboardButton(
-                        "Ꭵ᥉ ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"), 
+                        "᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"), 
                  
                 ],
 
@@ -50,7 +50,7 @@ async def huhh(client: Client, message: Message):
 
 
 @app.on_message(
-    command(["مطور السورس","المبرمج","كريزي"])
+    command(["مطور السورس","المبرمج","اسبايدر"])
     
     
 )
@@ -58,7 +58,7 @@ async def yas(client, message):
     usr = await client.get_chat("Y_D_ll")
     name = usr.first_name
     photo = await app.download_media(usr.photo.big_file_id)
-    await message.reply_photo(photo,       caption=f"𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮 \n\n‍ ¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮", 
+    await message.reply_photo(photo,       caption=f"᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ \n\n‍ ¦ᦔꫀꪜ :{name}\n ¦ꪊ𝘴ꫀ𝘳 :@{usr.username}\n ¦Ꭵժ :`{usr.id}`\n ¦ႦᎥ᥆ :{usr.bio}\n\𝗦𝗼𝗨𝗿𝗖𝗲 𝗦𝗼𝗠𝟯𝗮", 
     reply_markup=InlineKeyboardMarkup(
             [
                 [
