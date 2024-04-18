@@ -61,9 +61,9 @@ def stream_markup_timer(_, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],[  
-            InlineKeyboardButton(text="𝐄𝐍𝐃", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="𝐑𝐄𝐒𝐔𝐌𝐄", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="𝐏𝐀𝐔𝐒𝐄", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="ᥱꪀძ", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(text="ᖇᥱ᥉ᥙꪔᥱ", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="ρᥲᥙ᥉ᥱ", callback_data=f"ADMIN Pause|{chat_id}"),
             
         ],[
             InlineKeyboardButton(text="᥉᥆ᥙᖇᥴᥱ ", url=f"https://t.me/SOURCE_SOM3A"),
