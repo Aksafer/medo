@@ -12,7 +12,7 @@ from MatrixMusic import (Apple, Resso , Spotify, Telegram, YouTube, app)
 #########
 #الاوامر
 @app.on_message(
-    filters.command(["الاومر"],""))
+    filters.command(["الااومر"],""))
 async def khalid(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://graph.org/file/3f428a46f14944f328804.jpg",
