@@ -1,18 +1,17 @@
+
 import asyncio
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton 
 from pyrogram import filters, Client
 from MatrixMusic import app
+from config import OWNER_ID
 
-# Replace the following line with your actual OWNER_ID
-OWNER_ID = 123456789
-
-@app.on_message(filters.command(['بوت'], prefixes="بوت"))
+@app.on_message(filters.command(["بوت","البوت"], prefixes=""))
 async def Italymusic(client: Client, message: Message):
     me = await client.get_me()
     bot_username = me.username
     bot_name = me.first_name
     italy = message.from_user.mention
-    button = InlineKeyboardButton("اضف البوت الي مجموعتك🏅", url=f"https://t.me/{bot_username}?startgroup=true")
+    button = InlineKeyboardButton("اضف البوت الي مجموعتك⚡", url=f"https://t.me/{bot_username}?startgroup=true")
     keyboard = InlineKeyboardMarkup([[button]])
     user_id = message.from_user.id
     chat_id = message.chat.id
