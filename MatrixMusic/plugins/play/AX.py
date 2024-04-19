@@ -12,7 +12,7 @@ from MatrixMusic import (Apple, Resso , Spotify, Telegram, YouTube, app)
 #########
 #الاوامر
 @app.on_message(
-    filters.command(["الااومر"],""))
+    filters.command(["الاومر"],""))
 async def khalid(client: Client, message: Message):
     await message.reply_photo(
         photo=f"https://graph.org/file/3f428a46f14944f328804.jpg",
@@ -24,14 +24,14 @@ async def khalid(client: Client, message: Message):
 ✅ قائمه الاوامر تحتوي علي ٢ اوامر .
       
 1 ← اوامـر الـحـمـايـه .
-2 ← اوامـر الـمـوزك .""",
+2 ← اوامـر الـمـيـوزك .""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                       InlineKeyboardButton(
                         "اوامـر الحـمايـه", callback_data=f"hmaya"),
                     InlineKeyboardButton(
-                        "اوامـر الـمـوزك", callback_data=f"musichelal"),
+                        "اوامـر الـمـيـوزك", callback_data=f"musichelal"),
                 ],[
                     InlineKeyboardButton(
                         "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devhelp"),
@@ -50,13 +50,13 @@ async def ayamr(_, query: CallbackQuery):
 ✅ قائمه الاوامر تحتوي علي ٢ اوامر .
            
 1 ← اوامـر الـحـمـايـه .
-2 ← اوامـر الـمـوزك .""",reply_markup=InlineKeyboardMarkup(
+2 ← اوامـر الـمـيـوزك .""",reply_markup=InlineKeyboardMarkup(
             [
                 [
                       InlineKeyboardButton(
                         "اوامـر الحـمايـه", callback_data=f"hmaya"),
                     InlineKeyboardButton(
-                        "اوامـر الـمـوزك", callback_data=f"musichelal"),
+                        "اوامـر الـمـيـوزك", callback_data=f"musichelal"),
                 ],[
                     InlineKeyboardButton(
                         "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devhelp"),
