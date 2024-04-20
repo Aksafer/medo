@@ -45,7 +45,7 @@ async def khalid(client: Client, message: Message):
 #الاوامر كول باك
 @app.on_callback_query(filters.regex("ayamr"))
 async def ayamr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس بودا
+   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
           
 ✅ قائمه الاوامر تحتوي علي ٢ اوامر .
            
@@ -71,7 +71,7 @@ async def ayamr(_, query: CallbackQuery):
 #اوامر الحمايه
 @app.on_callback_query(filters.regex("hmaya"))
 async def bhr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f""" ✅ اليك قائمة اوامر سورس بودا
+   await query.edit_message_caption(caption =f""" ✅ اليك قائمة اوامر سورس سمعه
          
 
 ✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
@@ -95,7 +95,7 @@ async def bhr(_, query: CallbackQuery):
 
 @app.on_callback_query(filters.regex("maya"))
 async def bhhr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس بودا
+   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
           
 ✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
            
@@ -115,7 +115,7 @@ async def bhhr(_, query: CallbackQuery):
     
 @app.on_callback_query(filters.regex("aya"))
 async def br(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس بودا
+   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
          
 
 ✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
@@ -138,7 +138,7 @@ async def br(_, query: CallbackQuery):
 
 @app.on_callback_query(filters.regex("musichelal"))
 async def back(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس بودا
+   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
          
 
 ✅ قائمه الاوامر الميوزك تحتوي علي 6 اوامر .
