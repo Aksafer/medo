@@ -1,578 +1,203 @@
-import sys
+
 import asyncio
+import os
 import requests
-import re
-import string
-from pyrogram.types import Message
-from aiohttp import ClientSession
-from pyrogram import filters, Client
-from pyrogram.types import (InlineKeyboardButton,CallbackQuery,InlineKeyboardMarkup, Message)
-from MatrixMusic import (Apple, Resso , Spotify, Telegram, YouTube, app)
+import pyrogram
+from pyrogram import Client, filters, emoji
+from strings.filters import command
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from pyrogram.errors import MessageNotModified
+from MatrixMusic import app
+from config import OWNER_ID, LOGGER_ID
 
-#########
-#الاوامر
+
 @app.on_message(
-    filters.command(["الاوامر"],""))
-async def khalid(client: Client, message: Message):
+    command("")
+)
+async def cr_source(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://graph.org/file/3f428a46f14944f328804.jpg",
-        caption=f"""✅ مرحبا بك عزيزي {message.from_user.mention}
-     
-✅ اليك قائمة اوامر سورس سمعه
-      
-
-✅ قائمه الاوامر تحتوي علي ٢ اوامر .
-      
-1 ← اوامـر الـحـمـايـه .
-2 ← اوامـر الـمـيـوزك .""",
+      photo=f"https://graph.org/file/a9f1cf7a8337bff7ef06f.jpg",
+        caption=f"""**- قائمة الاوامر
+        
+ — — — — — — — — — — 
+- م1 ( اوامر التشغيل )
+- م2 ( اوامر التفعيل )
+- م3 ( اوامر القفل - الفتح )
+- م4 ( اوامر الالعاب )
+- م5 ( اوامر التسليه )""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                      InlineKeyboardButton(
-                        "اوامـر الحـمايـه", callback_data=f"hmaya"),
                     InlineKeyboardButton(
-                        "اوامـر الـمـيـوزك", callback_data=f"musichelal"),
-                ],[
+                        "‹ ااوامر التشغيل ›", callback_data="gr"),
                     InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devhelp"),
-                ],[
+                        "‹ اوامر التفعيل ›", callback_data="ch"),  
+                 ],[
                     InlineKeyboardButton(
-                        "إغـلاق", callback_data=f"close"),
-               ],
-            ]
-        ),
-    )
-#الاوامر كول باك
-@app.on_callback_query(filters.regex("ayamr"))
-async def ayamr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
-          
-✅ قائمه الاوامر تحتوي علي ٢ اوامر .
-           
-1 ← اوامـر الـحـمـايـه .
-2 ← اوامـر الـمـيـوزك .""",reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                      InlineKeyboardButton(
-                        "اوامـر الحـمايـه", callback_data=f"hmaya"),
+                        "‹ فتح - قفل ›", callback_data="yyy"), 
+                 ],[
                     InlineKeyboardButton(
-                        "اوامـر الـمـيـوزك", callback_data=f"musichelal"),
-                ],[
+                        "‹ اوامر الالعاب ›", callback_data="adm"), 
+                InlineKeyboardButton(
+                        "‹ اوامر التسليه ›", callback_data="hmd"), 
+                 ],[       
+                       
                     InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devhelp"),
-                ],[
-                    InlineKeyboardButton(
-                        "إغـلاق", callback_data=f"close"),
-               ],
-            ]
-        ),
-    )
-########
-#اوامر الحمايه
-@app.on_callback_query(filters.regex("hmaya"))
-async def bhr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f""" ✅ اليك قائمة اوامر سورس سمعه
-         
+                        "‹ السورس ›", url=f"https://t.me/Source_Katya"),
+                ],
 
-✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
-         ᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ """,reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                      InlineKeyboardButton(
-                        "اوامـر التسليه", callback_data=f"maya"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمن", callback_data=f"aya"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devv"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"ayamr"), 
-               ],
             ]
+
         ),
+
     )
 
-@app.on_callback_query(filters.regex("maya"))
-async def bhhr(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
-          
-✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
-           
-1 ← اوامر الحمايه  .
-2 ← اوامر الحمايه  .""",reply_markup=InlineKeyboardMarkup(
+    
+@app.on_callback_query(filters.regex("gr"))
+async def cr_usage(_, callback_query: CallbackQuery):
+    await callback_query.answer()
+    await callback_query.message.edit_text(
+        text="""**-  اوامر التشغيل اتبع مايلي
+ — — — — — — — — — — 
+
+◇︰ __تشغيل__ أو __شغل__ : لبدء تشغيل الاغاني .
+
+◇︰ __بينج__ : لقياس سرعة النت في البوت .
+
+◇︰أوامر القناة : __تشغيل__ + أسم الأغنية  .
+
+◇︰ __كتم__ او __مؤقت__ : لكتم الأغنية الحالية .
+
+◇︰ __كمل__ : لألغاء كتم الاغنية الحالية .
+
+◇︰ __تخطي__ : لتخطي الأغنية الحالية .
+
+◇︰ __ايقاف__ : لايقاف تشغيل الأغنية الحالية .**""",
+        reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "اوامـر الادمن", callback_data=f"aya"),
+                        "‹ التالي ›", callback_data="ch"), 
+                    
                 ],[
                     InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"hmaya"), 
-               ],
+                        "‹ الرئيسية ›", callback_data="الاوامر"), 
+                    
+                ]
             ]
-        ),
+        )
     )
-    
-@app.on_callback_query(filters.regex("aya"))
-async def br(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
-         
 
-✅ قائمه الاوامر الحمايه تحتوي علي  اوامر .
-         
-1 ← اوامر الحمايه  .
-2 ← اوامر الحمايه  .""",reply_markup=InlineKeyboardMarkup(
+@app.on_callback_query(filters.regex("ch"))
+async def cr_usage(_, callback_query: CallbackQuery):
+    await callback_query.answer()
+    await callback_query.message.edit_text(
+        text="""**-  اوامر التفعيل اتبع مايلي
+ — — — — — — — — — —
+
+‹ طريقه تفعيل البوت في الكروبات والقنوات ⤈ ›
+
+‹ Gr1 › 
+ اضف البوت مع كامل الصلاحيات عدا البقاء متخفي 
+
+‹ Gr2 › : 
+افتح اتصال في المجموعة او القناة 
+
+‹ Gr2 › :  
+اكتب تشغيل + اسم الأغنية 
+
+ - سيتم انضمام الحساب المساعد الى المحادثة الصوتية وتشغيل الاغنية التي اردتها .
+- الحساب المساعد عبارة عن حساب وهمي وضيفته فقط تشغيل الموسيقى 
+
+- لاتقم بطرده او حضره اثناء تشغيل الموسيقى يمكنك استخدام الامر
+
+- __ايقاف__ لانهاء تشغيل المقطع الصوتي وخروج الحساب المساعد دون مشاكل**""",
+        reply_markup=InlineKeyboardMarkup(
             [
                 [
-                      InlineKeyboardButton(
-                        "اوامـر التسليه", callback_data=f"maya"),
+                    InlineKeyboardButton(
+                        "‹ التالي ›", callback_data="adm"), 
+                    InlineKeyboardButton(
+                        "‹ رجوع ›", callback_data="gr"), 
                 ],[
                     InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"hmaya"), 
-               ],
+                        "‹ الرئيسية ›", callback_data="الاوامر"), 
+                    
+                ]
             ]
-        ),
+        )
     )
-    
 
+@app.on_callback_query(filters.regex("adm"))
+async def cr_usage(_, callback_query: CallbackQuery):
+    await callback_query.answer()
+    await callback_query.message.edit_text(
+        text="""**- قائمة الالعاب هي : ↶
+— — — — — — — — — — — — — —
 
-@app.on_callback_query(filters.regex("musichelal"))
-async def back(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""✅ اليك قائمة اوامر سورس سمعه
-         
+- العكس ↫ لعبة عكس الكلمات 
 
-✅ قائمه الاوامر الميوزك تحتوي علي 6 اوامر .
-          
-1 ← اوامر التشغيل .
-2 ← اوامر القنوات .
-3 ← اوامر مطور البوت .
-4 ← مميزات السورس .
-5 ← اوامر البوت .
-6 ← اوامر الادمن .""",
-       reply_markup=InlineKeyboardMarkup(
+- امثله ↫ لعبة امثله مسليه
+
+- لو خيروك ↫ لعبة لو خيروك
+
+- كلمات ↫ لعبة كلمات 
+
+- صراحه ↫ لعبة صراحه
+
+- نشط عقلك ↫ لعبة اسئلة عامة
+
+— — — — — — — — — — — — —""",
+        reply_markup=InlineKeyboardMarkup(
+            [
                 [
-                      [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
                     InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),
+                        "‹ التالي ›", callback_data="hmd"), 
                     InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
+                        "‹ رجوع ›", callback_data="ch"), 
                 ],[
                     InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-               "رجـوع ♬", callback_data=f"ayamr"),
-               ],
+                        "‹ الرئيسية ›", callback_data="الاوامر"), 
+                    
+                ]
             ]
-        ),
-    )
-       
-#قائمه الاوامر الاولي
-@app.on_callback_query(filters.regex("g1"))
-async def tt(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
-
-         
-✅ اليك قائمة اوامر التشغيل ,
-
-- اولا اليك اوامر التشغيل ف الجروب .
-          
-- لتشغيل اغنيه اكتب : تشغيل او شغل او /play
-- لتشغيل فيديو اكتب : فيديو او /video
-- لأنهاء الاغنيه اكتب : ايقاف او انهاء او /stop
-- لايقاف الاغنيه مؤقت اكتب : وقف او /pause
-- لتكملة الاغنيه من الايقاف المؤقت اكتب : كمل او /resume
-- لتخطي الاغنيه اكتب : تخطي او /skip
-- لكتم البوت في الكول اكتب : اسكت او /mute
-- لألغاء كتم البوت في الكول اكتب : اتكلم او /unmute
-- لاعادة تشغيل البوت اكتب : /restart""",
-       reply_markup=InlineKeyboardMarkup(
-          [
-               [
-                    InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),
-                    InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
-    )
-    
-#قائمه الاوامى الثانيه
-@app.on_callback_query(filters.regex("g2"))
-async def ddd(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
-
-       
-✅ اليك قائمة اوامر القنوات ,
-
-- اولا اليك اوامر ربط البوت ب القناة .
-      
- لربط البوت ب القناة مالك القناة فقط يستطيع ربطه .
-لربط القناة اكتب : ربط + معرف القناة
-
-- ثانيا اليك اوامر تشغيل البوت في القناة .
-
-- لتشغيل اغنيه اكتب : ق تشغيل او ق شغل او cplay
-- لتشغيل فيديو اكتب : ق فيديو او cvideo
-- لأنهاء الاغنيه اكتب : ق ايقاف او ق انهاء او cstop
-- لايقاف الاغنيه مؤقت اكتب : ق وقف او cpause
-- لتكملة الاغنيه من الايقاف المؤقت اكتب : ق كمل او cresume
-- لتخطي الاغنيه اكتب : تخطي او cskip
-- لكتم البوت في الكول اكتب : ق اسكت او cmute
-- لألغاء كتم البوت في الكول اكتب : ق اتكلم او cunmute
-- لاعادة تشغيل البوت اكتب : /restart""",
-       reply_markup=InlineKeyboardMarkup(
-               [
-                    [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),
-                    InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
+        )
     )
 
-#قائمه الاوامى الثالثه
-@app.on_callback_query(filters.regex("g3"))
-async def ddd(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
+@app.on_callback_query(filters.regex("hmd"))
+async def cr_usage(_, callback_query: CallbackQuery):
+    await callback_query.answer()
+    await callback_query.message.edit_text(
+        text="""**-  اوامر التسليه
+ — — — — — — — — — — 
+- ( غنيلي ) يرسل لك اغنية عشوائية
 
-      
-✅ اليك قائمة اوامر مطور البوت ,
+- ( فيلم ) فيلم كامل عشوائي
 
-- جميع الاوامر خاصه بمطور البوت فقط .
-      
-- لعمل اذاعه في البوت اعمل ريبلاي علي الاذاعه واكتب : اذاعه .
- - لعرض احصائيات البوت اكتب : الاحصائيات .
-- لعرض سرعه البوت اكتب : بينج .
-- للتحكم في لغه البوت اكتب : اللغه .
-- للتحكم في ازار التشغيل اكتب : وضع شغل .
-- لعرض اعدادات البوت اكتب : الاعدادات .
+- ( متحركة ) متحركات عشوائيه مميزة
 
-- ثانيا اليك اوامر الرتب .
-      
-- لرفع ادمن في الجروب اكتب : ر ا د .
-- لرفع ادمن في الجروب اكتب : ت ا د .
-- لعرض قائمه الادمنيه اكتب : ق ا د .
-- لرفع مطور ثانوي اكتب : ر م ث .
-- لتنزيل مطور ثانوي اكتب : ت م ث .
-- لعرض قائمه الثانوين اكتب : ق م ث .
+- ( اقتباسات ) اقتباس بالصورة جميل
 
-- ثالثا اليك اوامر الحظر .
-      
-- لحظر عضو من الجروب اكتب : ح ر .
-- لالغاء حظر عضو من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين اكتب : ق ح ر .
-- لحظر عضو عام من الجروب اكتب : ح ع .
-- لالغاء حظر عضو عام من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين عام اكتب : ق ح ع .""",
-       reply_markup=InlineKeyboardMarkup(
-                    [
-                      [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
+- ( اسمي ) لعرض اسمك الكامل
+
+- ( ا ) لعرض معلوماتك
+
+- ( all ) لعمل تاك جماعي في المجموعه
+
+— — — — — — — — — — — — — —**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
                     InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
+                        "‹ التالي ›", callback_data="gr"), 
+                    InlineKeyboardButton(
+                        "‹ رجوع ›", callback_data="adm"), 
                 ],[
                     InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
+                        "‹ الرئيسية ›", callback_data="الاوامر"), 
+                    
+                ]
+            ]
+        )
     )
-    
-#قائمه الاوامى الثالثه
-@app.on_callback_query(filters.regex("g4"))
-async def ddd(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
-
-
-      
-✅ اليك قائمة مميزات السورس ,
-      
-✅ هذه قائمه مميزات سورس سمعه الميوزك .
-      
-- لعرض اوامر البوت اكتب : الاوامر .
-- لعرض كليشه السورس اكتب : سورس سمعه .
-- لعرض مطور البوت اكتب : المطور .
-- لعرض اسم البوت اكتب : البوت .
-- لعرض الايدي الخاص بك وصورتك اكتب : ا .
-
-✅ اولا قائمة اوامر البوت ,
-      
-- لعمل اذاعه في البوت اعمل ريبلاي علي الاذاعه واكتب : اذاعه .
-- لعرض سرعه البوت اكتب : بينج .
-- للتحكم في لغه البوت اكتب : اللغه .
-- للتحكم في ازار التشغيل اكتب : وضع شغل .
-- لعرض اعدادات البوت اكتب : الاعدادات .
-
-✅ ثانيا اليك اوامر الرتب .
-      
-- لرفع ادمن في الجروب اكتب : ر ا د .
-- لرفع ادمن في الجروب اكتب : ت ا د .
-- لعرض قائمه الادمنيه اكتب : ق ا د .
-
-✅ ثالثا اليك اوامر الحظر .
-      
-- لحظر عضو من الجروب اكتب : ح ر .
-- لالغاء حظر عضو من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين اكتب : ق ح ر .""",
-       reply_markup=InlineKeyboardMarkup(
-                    [
-                      [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
-                    InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),          
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
-    )
-    
-#قائمه الاوامى الثالثه
-@app.on_callback_query(filters.regex("g5"))
-async def ddd(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
-
-
-      
-✅ اليك قائمة اوامر البوت ,
-      
-- لعرض سرعه البوت اكتب : بينج .
-- للتحكم في لغه البوت اكتب : اللغه .
-- للتحكم في ازار التشغيل اكتب : وضع شغل .
-- لعرض اعدادات البوت اكتب : الاعدادات .
-
-- ثانيا اليك اوامر الرتب .
-
-- لرفع ادمن في الجروب اكتب : ر ا د .
-- لرفع ادمن في الجروب اكتب : ت ا د .
-- لعرض قائمه الادمنيه اكتب : ق ا د .
-- لتنزيل مطور ثانوي اكتب : ت م ث .
-
-
-- ثالثا اليك اوامر الحظر .
-
-- لحظر عضو من الجروب اكتب : ح ر .
-- لالغاء حظر عضو من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين اكتب : ق ح ر .
-- لحظر عضو عام من الجروب اكتب : ح ع .
-- لالغاء حظر عضو عام من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين عام اكتب : ق ح ع .""",
-       reply_markup=InlineKeyboardMarkup(
-                    [
-                      [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
-                    InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),
-                    InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                    InlineKeyboardButton(
-                        "اوامـر الادمـن", callback_data=f"g6"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
-    )
-    
-#قائمه الاوامى الثالثه
-@app.on_callback_query(filters.regex("g6"))
-async def ddd(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"""
-
-
-      
-✅ اليك قائمة اوامر الادمن ,
-
-- جميع الاوامر خاصه ب الادمن فقط .
-      
-- لعرض سرعه البوت اكتب : بينج .
-- للتحكم في لغه البوت اكتب : اللغه .
-- للتحكم في ازار التشغيل اكتب : وضع شغل .
-- لعرض اعدادات البوت اكتب : الاعدادات .
-
-- ثانيا اليك اوامر الرتب .
-       
-- لرفع ادمن في الجروب اكتب : ر ا د .
-- لرفع ادمن في الجروب اكتب : ت ا د .
-- لعرض قائمه الادمنيه اكتب : ق ا د .
-
-- ثالثا اليك اوامر الحظر .
-       
-- لحظر عضو من الجروب اكتب : ح ر .
-- لالغاء حظر عضو من الجروب اكتب : ا ر .
-- لعرض قائمه المحظورين اكتب : ق ح ر .""",
-       reply_markup=InlineKeyboardMarkup(
-                    [
-                      [
-                      InlineKeyboardButton(
-                        "اوامـر الـتـشـغـيل", callback_data=f"g1"),
-                    InlineKeyboardButton(
-                        "اوامـر الـقـنـوات", callback_data=f"g2"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـمـطـور", callback_data=f"g3"),
-                    InlineKeyboardButton(
-                        "مـمـيـزات الـسـورس", callback_data=f"g4"),
-                ],[
-                      InlineKeyboardButton(
-                        "اوامـر الـبـوت", callback_data=f"g5"),
-                ],[
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", callback_data=f"devmusic"),
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
-    )
-##########  
-#المطورين
-#الاوامر
-@app.on_callback_query(filters.regex("devhelp"))
-async def devhelp(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐒𝐨𝐦𝟑𝐚 𝐌𝐮𝐬𝐢𝐜",
-       reply_markup=InlineKeyboardMarkup(
-          [
-               [
-                    InlineKeyboardButton(
-                        "᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ•", url=f"https://t.me/SOURCE_SOM3A")
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"ayamr"),
-               ], 
-          ]
-        ),
-    )
-#الحمايه   
-@app.on_callback_query(filters.regex("devv"))
-async def devh(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐒𝐨𝐦𝟑𝐚 𝐌𝐮𝐬𝐢𝐜",
-       reply_markup=InlineKeyboardMarkup(
-          [
-               [
-                    InlineKeyboardButton(
-                        "᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ", url=f"https://t.me/SOURCE_SOM3A")
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"hmaya"),
-               ],
-          ]
-        ),
-    )
-#الميوزك
-@app.on_callback_query(filters.regex("devmusic"))
-async def devmusic(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐒𝐨𝐦𝟑𝐚 𝐌𝐮𝐬𝐢𝐜",
-       reply_markup=InlineKeyboardMarkup(
-          [
-               [
-                    InlineKeyboardButton(
-                        "᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ•", url=f"https://t.me/SOURCE_SOM3A")
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"musichelal"),
-               ],
-          ]
-        ),
-    )  
-#الستار
-@app.on_callback_query(filters.regex("devstart"))
-async def devmusic(_, query: CallbackQuery):
-   await query.edit_message_caption(caption =f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 𝐒𝐨𝐮𝐫𝐜𝐞 𝐒𝐨𝐦𝟑𝐚 𝐌𝐮𝐬𝐢𝐜",
-       reply_markup=InlineKeyboardMarkup(
-          [
-               [
-                    InlineKeyboardButton(
-                        "᥉ρᎥძᥱᖇ", url=f"https://t.me/Y_D_ll"),
-                    InlineKeyboardButton(
-                        "᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ•", url=f"https://t.me/SOURCE_SOM3A")
-                ],[
-                    InlineKeyboardButton(
-                        "رجـوع ♬", callback_data=f"settingsback_helper"),
-               ],
-          ]
-        ),
-    )  
+  
