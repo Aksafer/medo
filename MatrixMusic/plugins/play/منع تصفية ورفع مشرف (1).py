@@ -31,7 +31,7 @@ async def welcome(client, chat_member_updated):
             messagee = f"⎉︙المستخدم {user.username} ({user.first_name}) تم طرده من الجروب بواسطة البوت"
         else:
             if kicked_by is not None:
-                message = f"━━━━━✯᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ ✯━━━━━\n⎉︙تـم طـرد الـعـضـو @{user.username}\n⎉︙بـواسـطـة @{kicked_by.username}\n⎉︙تـم حـظـر مـن الـجـروب بـسـبـب طـرد عـضـو دون اذن \n━━━━━✯ [ @SOURCE_SOM3A ] ✯━━━━━"
+                message = f"━━━━━✯᥉᥆ᥙᖇᥴᥱ ᥉᥆ꪔ3ᥲ ✯━━━━━\n⎉︙تـم طـرد الـعـضـو @{user.username}\n⎉︙بـواسـطـة @{kicked_by.username}\n⎉︙تـم حـظـر مـن الـجـروب بـسـبـب طـرد عـضـو دون اذن \n━━━━━✯ [ @YR_HC ] ✯━━━━━"
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
