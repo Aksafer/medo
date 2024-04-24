@@ -53,7 +53,7 @@ async def cr_source(client: Client, message: Message):
 
     
 @app.on_callback_query(filters.regex("gr"))
-async def cr_usage(_, callback_query: CallbackQuery):
+async def cr_usage(callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
         text="""**-  اوامر التشغيل اتبع مايلي
