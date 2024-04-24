@@ -1,4 +1,4 @@
-mport asyncio
+import asyncio
 import os
 import requests
 import pyrogram
@@ -40,5 +40,4 @@ async def zdatsr(client: Client, message: Message):
             ]
         ),
     )
-
 
