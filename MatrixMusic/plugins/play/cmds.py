@@ -11,7 +11,7 @@ from config import OWNER_ID, LOGGER_ID
 
 
 @app.on_message(
-    command("")
+    command("الاوامر")
 )
 async def cr_source(client: Client, message: Message):
     await message.reply_photo(
