@@ -20,7 +20,7 @@ async def tag_all_users(_, message):
             if message.chat.id not in SPAM_CHATS:
                 break
             usernum += 5
-            usertxt += f"\n⊚ {x.user.mention}"
+            usertxt += f"\n⊚ {NAMESURNAME}"
             if usernum == 1:
                 await replied.reply_text(usertxt)
                 await asyncio.sleep(2)
