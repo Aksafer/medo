@@ -39,28 +39,28 @@ async def ban_user(user_id, first_name, admin_id, admin_name, chat_id, reason, t
     try:
         await app.ban_chat_member(chat_id, user_id)
     except ChatAdminRequired:
-        msg_text = "**ڕۆڵی دەرکردنم نییە، ڕۆڵی باندم پێبدە بۆ ئەنجامدانی💘•**"
+        msg_text = "ليس لدي جميع الصلاحيات، الكافيه لحظرو •"
         return msg_text, False
     except UserAdminInvalid:
-        msg_text = "**من ناتوانم ئەدمین دەربکەم بەجدیتە؟😂🙂**"
+        msg_text = "دا ادمن ياهبل ازاي هتطردو ؟"
         return msg_text, False
     except Exception as e:
         if user_id in SUDOERS:
-            msg_text = "**من ناتوانم گەشەپێدەر دەربکەم بەجدیتە؟😂🙂**"
+            msg_text = "لا أستطيع طرد المطور ؟"
             return msg_text, False
         
-        msg_text = f"**بۆچی دەتەوێ خۆم دەربکەم؟ نا ببورە من وەکو تۆ گەمژەنیم😂🙂!**"
+        msg_text = f"لماذا تريدني أن أطرد نفسي؟ لا، أنا آسف، أنا غبي مثلك!"
         return msg_text, False
 
     user_mention = mention(user_id, first_name)
     admin_mention = mention(admin_id, admin_name)
 
-    msg_text += f"**دەرکرا: {user_mention}\nلەلایەن: {admin_mention}**"
+    msg_text += f"تمت إزالته: {user_mention}\nبواسطة: {admin_mention}**"
     
     if reason:
-        msg_text += f"**هۆکار: `{reason}`\n**"
+        msg_text += f"سبب: `{reason}`\n**"
     if time:
-        msg_text += f"**کات: `{time}`\n**"
+        msg_text += f"وقت: `{time}`\n**"
 
     return msg_text, True
 
@@ -69,23 +69,23 @@ async def unban_user(user_id, first_name, admin_id, admin_name, chat_id):
     try:
         await app.unban_chat_member(chat_id, user_id)
     except ChatAdminRequired:
-        msg_text = "**ڕۆڵی لادانی دەرکردنم نییە، ڕۆڵی باندم پێبدە بۆ ئەنجامدانی💘•**"
+        msg_text = "ليس لدي دور انحراف الإخلاء، أعطني دور الفرقة للقيام بذلك•"
         return msg_text
     except Exception as e:
-        msg_text = f"**بۆچی دەتەوێ خۆم لابدەم؟ نا ببورە من وەکو تۆ گەمژەنیم😂🙂!**"
+        msg_text = f"** لماذا تريد مني أن أزيل نفسي؟ لا، أنا آسف، أنا غبي مثلك!"
         return msg_text
 
     user_mention = mention(user_id, first_name)
     admin_mention = mention(admin_id, admin_name)
     
-    msg_text = f"**دەرکردنی لەسەر لادرا: {user_mention}\nلەلایەن: {admin_mention}**"
+    msg_text = f"تمت ازالته: {user_mention}\nبواسطة: {admin_mention}**"
     return msg_text
 
 
     
 
 
-@app.on_message(filters.command(["حظر","باند"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["حظر","طرد"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ban_command_handler(client, message):
     chat = message.chat
     chat_id = chat.id
@@ -96,10 +96,10 @@ async def ban_command_handler(client, message):
         if member.privileges.can_restrict_members:
             pass
         else:
-            msg_text = "**تۆ ڕۆڵت نییە کەسێك دەربکەیت یان باند بکەیت🖤•**"
+            msg_text = "ليس لديك دور لطرد أو حظر شخص ما•"
             return await message.reply_text(msg_text)
     else:
-        msg_text = "**تۆ ڕۆڵت نییە کەسێك دەربکەیت یان باند بکەیت🖤•**"
+        msg_text = "ليس لديك دور لطرد أو حظر شخص ما•"
         return await message.reply_text(msg_text)
 
     # Extract the user ID from the command or reply
@@ -115,7 +115,7 @@ async def ban_command_handler(client, message):
             except:
                 user_obj = await get_userid_from_username(message.command[1])
                 if user_obj == None:
-                    return await message.reply_text("**ناتوانم کەسەکە بدۆزمەوە🖤•**")
+                    return await message.reply_text("لا أستطيع العثور على الشخص•")
                 user_id = user_obj[0]
                 first_name = user_obj[1]
 
@@ -129,7 +129,7 @@ async def ban_command_handler(client, message):
         first_name = message.reply_to_message.from_user.first_name
         reason = None
     else:
-        await message.reply_text("**تکایە یوزەری بەکارهێنەر بنووسە لەگەڵ فەرمان یان وەڵامی نامەی ئەو بەکارهێنەرە بدەرەوە🖤•**")
+        await message.reply_text("الرجاء إدخال اسم المستخدم الخاص بالمستخدم مع الأمر أو الرد على رسالة ذلك المستخدم•")
         return
         
     msg_text, result = await ban_user(user_id, first_name, admin_id, admin_name, chat_id, reason)
@@ -139,7 +139,7 @@ async def ban_command_handler(client, message):
         await message.reply_text(msg_text)
 
 
-@app.on_message(filters.command(["لادانی دەرکردن","لادانی باند"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["انحراف الاستبعاد"،"انحراف النطاق"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def unban_command_handler(client, message):
     chat = message.chat
     chat_id = chat.id
@@ -150,10 +150,10 @@ async def unban_command_handler(client, message):
         if member.privileges.can_restrict_members:
             pass
         else:
-            msg_text = "**تۆ ڕۆڵت نییە دەرکردن یان باندی کەسێك لابدەیت🖤•**"
+            msg_text = "ليس لديك دور لطرد أو حظر شخص ما•"
             return await message.reply_text(msg_text)
     else:
-        msg_text = "**تۆ ڕۆڵت نییە دەرکردن یان باندی کەسێك لابدەیت🖤•**"
+        msg_text = "ليس لديك دور لطرد أو حظر شخص ما•"
         return await message.reply_text(msg_text)
 
     # Extract the user ID from the command or reply
@@ -164,7 +164,7 @@ async def unban_command_handler(client, message):
         except:
             user_obj = await get_userid_from_username(message.command[1])
             if user_obj == None:
-                    return await message.reply_text("**ناتوانم کەسەکە بدۆزمەوە🖤•**")
+                    return await message.reply_text("لا أستطيع العثور على الشخص•")
             user_id = user_obj[0]
             first_name = user_obj[1]
 
@@ -172,7 +172,7 @@ async def unban_command_handler(client, message):
         user_id = message.reply_to_message.from_user.id
         first_name = message.reply_to_message.from_user.first_name
     else:
-        await message.reply_text("**تکایە یوزەری بەکارهێنەر بنووسە لەگەڵ فەرمان یان وەڵامی نامەی ئەو بەکارهێنەرە بدەرەوە🖤•**")
+        await message.reply_text("الرجاء إدخال اسم المستخدم الخاص بالمستخدم مع الأمر أو الرد على رسالة ذلك المستخدم•")
         return
         
     msg_text = await unban_user(user_id, first_name, admin_id, admin_name, chat_id)
