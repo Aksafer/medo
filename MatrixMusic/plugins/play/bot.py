@@ -1,36 +1,42 @@
-
 import asyncio
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton 
+import random
+from AnonXMusic.misc import SUDOERS
+from pyrogram.types import (Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery,ChatPrivileges)
 from pyrogram import filters, Client
-from MatrixMusic import app
-from config import OWNER_ID
+from AnonXMusic import app
+from config import *
 
-@app.on_message(filters.command(["بوت","البوت"], prefixes=""))
-async def Italymusic(client: Client, message: Message):
-    me = await client.get_me()
-    bot_username = me.username
-    bot_name = me.first_name
-    italy = message.from_user.mention
-    button = InlineKeyboardButton("اضف البوت الي مجموعتك⚡", url=f"https://t.me/{bot_username}?startgroup=true")
-    keyboard = InlineKeyboardMarkup([[button]])
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-    try:
-        member = await client.get_chat_member(chat_id, user_id)
-        if user_id == 6905129434:
-             rank = "مبرمج السورس🥹❤️"
-        elif user_id == OWNER_ID:
-             rank = "صاحب البوت يمعلم ⇇ اهلا مطوري الغالي كلو تحت السيطره يمعلم🦋🥹"
-        elif member.status == 'creator':
-             rank = "وه مالك الجروب⇇ يمعلم دخولك رايق سبب حرايق🥹🦋"
-        elif member.status == 'administrator':
-             rank = "دمشرف الجروب⇇ ينهار ابيض كابيه شاي للمعلم هنا يبني 🥹❤️"
-        else:
-             rank = "لاسف انت عضو فقير🥺💔**"
-    except Exception as e:
-        print(e)
-        rank = "مش عرفنلو مله ده😒"
-    async for photo in client.get_chat_photos("me", limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""نعم يقلبي: {italy} عوز اي\nاسمي : {bot_name} \nرتبتك هيا ⇇ :{rank}""", reply_markup=keyboard)
+bot_name = {}
+botname = {}
 
+name = "اسـبـايـدر"
 
+@app.on_message(filters.regex("تعيين اسم البوت")& filters.private & SUDOERS, group=7113)
+async def set_bot_name(client, message):
+    global name
+    ask = await app.ask(message.chat.id, "ارسل الاسم الجديد", timeout=300)
+    name = ask.text
+    await message.reply_text("تم تعيين الاسم بنجاح")
+
+caesar_responses = [
+    "اسمي {name} يصحبي",
+    "يسطا قولتلك اسمي {name} الاه",
+    "نعم عايز اي يازفت",
+    "قول انجز مش تصدعني ",
+    "مين مزعلك ياصحبي",
+]
+
+@app.on_message(filters.command(["بوت", "البوت"], ""), group=71135)
+async def caesar_bot(client, message):
+    global name
+    bot_username = (await app.get_me()).username
+    bar = random.choice(caesar_responses).format(name=name)
+    keyboard = InlineKeyboardMarkup([
+        [InlineKeyboardButton("خدني لجروبك والنبي🥺♥", url=f"https://t.me/{bot_username}?startgroup=True")]
+    ])
+
+    await message.reply_text(
+        text=f"[{bar}](https://t.me/{bot_username}?startgroup=True)",
+        disable_web_page_preview=True,
+        reply_markup=keyboard
+    )
