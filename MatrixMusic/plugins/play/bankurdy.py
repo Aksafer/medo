@@ -139,7 +139,8 @@ async def ban_command_handler(client, message):
         await message.reply_text(msg_text)
 
 
-@app.on_message(filters.command(["انحراف الاستبعاد"،"انحراف النطاق"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+
+@app.on_message(filters.command(["لادانی دەرکردن","لادانی باند"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def unban_command_handler(client, message):
     chat = message.chat
     chat_id = chat.id
