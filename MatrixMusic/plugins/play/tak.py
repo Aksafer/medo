@@ -6,7 +6,7 @@ from strings.filters import command
 SPAM_CHATS = []
 
 
-@app.on_message(command(["/mantion", "/all", "تاگ", "@all"]) & filters.group)
+@app.on_message(command(["/mantion", "/التاك", "تاك", "@all"]) & filters.group)
 async def tag_all_users(_, message):
     replied = message.reply_to_message
     if len(message.command) < 2 and not replied:
