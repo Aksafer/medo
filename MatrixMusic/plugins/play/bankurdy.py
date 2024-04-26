@@ -85,7 +85,7 @@ async def unban_user(user_id, first_name, admin_id, admin_name, chat_id):
     
 
 
-@app.on_message(filters.command(["دەرکردن","باند"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command(["حظر","باند"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def ban_command_handler(client, message):
     chat = message.chat
     chat_id = chat.id
