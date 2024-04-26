@@ -31,6 +31,6 @@ async def Italymusic(client: Client, message: Message):
         print(e)
         rank = "مـلـوش مـلـه و بـيـتـكـلـم ,🔫"
     async for photo in client.get_chat_photos("me", limit=1):
-                    await message.reply_photo(photo.file_id,       caption=f"""نـعـم يـمـعـلـم⇦ {italy} \n\n انـا بـوت اسـمـي ⇦ {bot_name} \n\nرتـبـتـك هـيـا ⇦{rank}""", reply_markup=keyboard)
+                    await message.reply_photo(photo.file_id,       caption=f"""نـعـم يـمـعـلـم⇦ {italy} \n\n انـا بـوت اسـمـي ⇦{bot_name} \n\nرتـبـتـك هـيـا ⇦{rank}""", reply_markup=keyboard)
 
 
