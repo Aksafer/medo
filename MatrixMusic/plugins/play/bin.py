@@ -7,16 +7,16 @@ from pyrogram.types import *
 async def check_ccbin(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "<b>من فضلك أعطني الرؤية\nلإحضاره !</b>"
+            "<b>تکایە بینم پێبدە\nبۆ هێنانی !</b>"
         )
     try:
         await message.delete()
     except:
         pass
-    aux = await message.reply_text("<b>يرجى التحقق من ذلك . . .</b>")
+    aux = await message.reply_text("<b>دەیپشکنم . . .</b>")
     bin = message.text.split(None, 1)[1]
     if len(bin) < 6:
-        return await aux.edit("<b>❌ خاطئ ❗...</b>")
+        return await aux.edit("<b>❌ بین هەڵەیە ❗...</b>")
     try:
         resp = await api.bininfo(bin)
         await aux.edit(f"""
