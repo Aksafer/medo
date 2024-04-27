@@ -2,9 +2,9 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import random
 import requests
-from MatrixMusic import app 
+from AdRenalen import app 
 
-SOURCE_SOM3A = "MGIMT"
+SUPPORT_CHAT = "SOURCE_SOM3A"
 
 @app.on_message(filters.command(["wish","حەز","هیوا","خۆزگە"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def wish(_, m):
@@ -25,11 +25,11 @@ async def wish(_, m):
         animation=url,
         caption=wish,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("تحديثات سمعه", url=f"https://t.me/{SOURCE_SOM3A}")]])
+            [[InlineKeyboardButton("تحديثات سـمعه", url=f"https://t.me/{SUPPORT_CHAT}")]])
     )
             
     
-BUTTON = [[InlineKeyboardButton("تحديثات سمعه", url=f"https://t.me/{SOURCE_SOM3A}")]]
+BUTTON = [[InlineKeyboardButton("تحديثات سـمعه", url=f"https://t.me/{SUPPORT_CHAT}")]]
 CUTIE = "https://64.media.tumblr.com/d701f53eb5681e87a957a547980371d2/tumblr_nbjmdrQyje1qa94xto1_500.gif"
 
 @app.on_message(filters.command(["cute","کیوت","كیوت","جمالي","قشتی"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
