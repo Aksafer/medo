@@ -1,7 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import *
 from MatrixMusic import app
-from gpytranslate import Translator
 from strings.filters import command
 
 #.......
