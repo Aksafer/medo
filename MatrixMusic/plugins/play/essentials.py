@@ -25,7 +25,7 @@ from pyrogram import Client, filters, __version__ as pyrover
 from pytgcalls import (__version__ as pytgver)
 
 
-from program.start import __python_version__ as pyver
+
 
 from MatrixMusic.core import me_bot
 from MatrixMusic.filters import command
