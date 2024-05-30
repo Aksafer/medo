@@ -93,19 +93,22 @@ developer = []
 command = ["/"]
 
 
-START_IMG_URL = getenv("START_IMG_URL", "https://telegra.ph/file/a0d8b418cbfe7fc6b780b.jpg")
-PING_IMG_URL = getenv("PING_IMG_URL", "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg")
-PLAYLIST_IMG_URL = "https://telegra.ph/file/895e5649bccc12b4943f3.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-TELEGRAM_AUDIO_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-TELEGRAM_VIDEO_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-STREAM_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-SOUNCLOUD_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-YOUTUBE_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
-MatrixMusic_KleCha_play = "https://telegra.ph/file/f57c7937f483cb36e09bd.jpg"
+START_IMG_URL = getenv(
+    "START_IMG_URL", "https://telegra.ph/file/c767967296e108c3b3a28.jpg"
+)
+PING_IMG_URL = getenv(
+    "PING_IMG_URL", "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+)
+PLAYLIST_IMG_URL = "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+TELEGRAM_AUDIO_URL = "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+TELEGRAM_VIDEO_URL = "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+STREAM_IMG_URL = "https://telegra.ph/file/12530c404b337c91936dc.jpg"
+SOUNCLOUD_IMG_URL = "https://graph.org/file/774380facd73524f27d26.jpg"
+YOUTUBE_IMG_URL = "https://graph.org/file/774380facd73524f27d26.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/774380facd73524f27d26.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/774380facd73524f27d26.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/774380facd73524f27d26.jpg"
 
 
 def time_to_seconds(time):
